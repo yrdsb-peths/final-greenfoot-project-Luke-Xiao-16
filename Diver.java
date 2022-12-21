@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Diver extends Actor
 {
-    GreenfootImage[] Right = new GreenfootImage[8];
-    GreenfootImage[] Left = new GreenfootImage[8];
+    GreenfootImage[] Right = new GreenfootImage[9];
+    GreenfootImage[] Left = new GreenfootImage[9];
     String facing = "right";
     SimpleTimer Timer = new SimpleTimer();
     /**
@@ -20,15 +20,15 @@ public class Diver extends Actor
     {
         for(int i=0; i<Right.length; i++)
         {
-            Right[i] = new GreenfootImage("images/Diver/D/"+ i +".png");
-            Right[i].scale(75,75);
+            Right[i] = new GreenfootImage("images/Diver/D/1."+ i +".png");
+            Right[i].scale(100,100);
         }
         
         for(int i=0; i<Left.length; i++)
         {
-            Left[i] = new GreenfootImage("images/Diver/D/"+ i +".png");
+            Left[i] = new GreenfootImage("images/Diver/D/1."+ i +".png");
             Left[i].mirrorHorizontally();
-            Left[i].scale(75,75);
+            Left[i].scale(100,100);
         }
         
         //Timer
@@ -87,6 +87,9 @@ public class Diver extends Actor
         {
             setLocation(getX(),getY()+2);
         }
+        
+        //Diver animation
+        DiverAnimation();
     }
     /*
     public void find()
