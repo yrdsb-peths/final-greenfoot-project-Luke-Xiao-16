@@ -20,13 +20,13 @@ public class Diver extends Actor
     {
         for(int i=0; i<Right.length; i++)
         {
-            Right[i] = new GreenfootImage("images/Diver/D/1."+ i +".png");
+            Right[i] = new GreenfootImage("images/1."+ i +".png");
             Right[i].scale(100,100);
         }
         
         for(int i=0; i<Left.length; i++)
         {
-            Left[i] = new GreenfootImage("images/Diver/D/1."+ i +".png");
+            Left[i] = new GreenfootImage("images/1."+ i +".png");
             Left[i].mirrorHorizontally();
             Left[i].scale(100,100);
         }
