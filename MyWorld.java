@@ -18,7 +18,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(700, 835, 1, false); 
+        super(800, 835, 1, false); 
         
         //Create the diver
         Diver diver = new Diver();
@@ -39,7 +39,7 @@ public class MyWorld extends World
     public void createTreasure()
     {
         Treasure treasure = new Treasure();
-        int x = Greenfoot.getRandomNumber(600);
+        int x = Greenfoot.getRandomNumber(800);
         int y = 805;
         addObject(treasure,x,y);
     }
