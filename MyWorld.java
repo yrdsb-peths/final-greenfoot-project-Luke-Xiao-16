@@ -1,64 +1,63 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class MyWorld here.
  * Under the sea ~~~
- * @author (Luke) 
+ * 
+ * @author (Luke)
  * @version (2022-12-20)
  */
-public class MyWorld extends World
-{
+public class MyWorld extends World {
     public int Score = 0;
     Label scoreLabel;
     int level = 1;
+
     /**
      * Constructor for objects of class MyWorld.
      * 
      */
-    public MyWorld()
-    {    
+    public MyWorld() {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 835, 1, false); 
-        
-        //Create the diver
+        super(800, 835, 1, false);
+
+        // Create the diver
         Diver diver = new Diver();
-        addObject(diver,300,40);
-        
-        //Create sharks
-        
-        
-        //Create a treasure
+        addObject(diver, 400, 40);
+
+        // Create sharks
+        createSharkLeft();
+        createSharkRight();
+        createSharkLeft();
+        createSharkRight();
+
+        // Create a treasure
         createTreasure();
-        
-        //Create a label
-        scoreLabel = new Label(0,100);
-        addObject(scoreLabel,70,50);
+
+        // Create a label
+        scoreLabel = new Label(0, 100);
+        addObject(scoreLabel, 70, 50);
     }
-    
-    //Spawn treasure at different locations
-    public void createTreasure()
-    {
+
+    // Spawn treasure at different locations
+    public void createTreasure() {
         Treasure treasure = new Treasure();
         int x = Greenfoot.getRandomNumber(800);
         int y = 805;
-        addObject(treasure,x,y);
+        addObject(treasure, x, y);
     }
-    
+
     // Score keeping
-    public void score()
-    {
-        Score++;        
+    public void score() {
+        Score++;
         scoreLabel.setValue(Score);
-        if(Score % 5 == 0)
-        {
+        if (Score % 5 == 0) {
             level++;
         }
     }
-    
+
     // Ends the game
-    public void gameOver()
-    {
+    public void gameOver() {
         Label gameOverLabel = new Label("Game Over", 100);
-        addObject(gameOverLabel,300,200);
+        addObject(gameOverLabel, 300, 200);
     }
 }
