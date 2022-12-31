@@ -22,10 +22,13 @@ public class MyWorld extends World
         
         //Create the diver
         Diver diver = new Diver();
-        addObject(diver,300,40);
+        addObject(diver,400,40);
         
         //Create sharks
-        
+        createSharkLeft();
+        createSharkRight();
+        createSharkLeft();
+        createSharkRight();
         
         //Create a treasure
         createTreasure();
@@ -42,5 +45,24 @@ public class MyWorld extends World
         int x = Greenfoot.getRandomNumber(800);
         int y = 805;
         addObject(treasure,x,y);
+    }
+    
+    //Spawn sharks at different locations
+    public void createSharkLeft()
+    {
+        Shark shark = new Shark();
+        shark.setSpeed(level);
+        int x = 0;
+        int y = Greenfoot.getRandomNumber(795);
+        addObject(shark,x,y);
+    }
+    
+    public void createSharkRight()
+    {
+        Shark shark = new Shark();
+        shark.setSpeed(level);
+        int x = 800;
+        int y = Greenfoot.getRandomNumber(795);
+        addObject(shark,x,y);
     }
 }
