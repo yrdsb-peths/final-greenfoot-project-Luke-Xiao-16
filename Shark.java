@@ -10,7 +10,7 @@ public class Shark extends Actor {
     GreenfootImage[] Right = new GreenfootImage[2];
     GreenfootImage[] Left = new GreenfootImage[2];
     SimpleTimer animationTimer = new SimpleTimer();
-
+    int speed = 1;
     /**
      * Act - do whatever the Shark wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -65,7 +65,7 @@ public class Shark extends Actor {
     }
 
     public void setSpeed(int Speed) {
-        //speed = Speed;
+        speed = Speed;
     }
 
     int imageIndex = 0;
@@ -75,15 +75,5 @@ public class Shark extends Actor {
             return;
         }
         animationTimer.mark();
-
-        //if (facing.equals("right")) {
-        //    setImage(Right[imageIndex]);
-        //   imageIndex = (imageIndex + 1) % Right.length;
-        //}
-
-        // else {
-            // setImage(Left[imageIndex]);
-            // imageIndex = (imageIndex + 1) % Left.length;
-        // }
     }
 }
