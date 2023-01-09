@@ -24,11 +24,6 @@ public class MyWorld extends World {
         Diver diver = new Diver();
         addObject(diver, 400, 40);
 
-        // Create sharks
-        createSharkLeft();
-        createSharkRight();
-        createSharkLeft();
-        createSharkRight();
 
         // Create a treasure
         createTreasure();
