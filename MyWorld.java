@@ -43,4 +43,22 @@ public class MyWorld extends World
         int y = 805;
         addObject(treasure,x,y);
     }
+    
+    // Score keeping
+    public void score()
+    {
+        Score++;        
+        scoreLabel.setValue(Score);
+        if(Score % 5 == 0)
+        {
+            level++;
+        }
+    }
+    
+    // Ends the game
+    public void gameOver()
+    {
+        Label gameOverLabel = new Label("Game Over", 100);
+        addObject(gameOverLabel,300,200);
+    }
 }

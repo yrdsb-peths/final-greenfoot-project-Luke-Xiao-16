@@ -88,16 +88,21 @@ public class Diver extends Actor
             setLocation(getX(),getY()+2);
         }
         
+        //Diver finds the treasure
+        find();
+        
         //Diver animation
         DiverAnimation();
     }
-    /*
+    
     public void find()
     {
         if(isTouching(Treasure.class))
         {
-            
+            removeTouching(Treasure.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.createTreasure();
+            world.score();
         }
     }
-    */
 }
