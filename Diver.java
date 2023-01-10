@@ -16,7 +16,8 @@ public class Diver extends Actor {
      * Act - do whatever the Diver wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Diver() {
+    public Diver() 
+    {
         for (int i = 0; i < Right.length; i++) {
             Right[i] = new GreenfootImage("images/1." + i + ".png");
             Right[i].scale(100, 100);
@@ -57,23 +58,25 @@ public class Diver extends Actor {
 
     public void act() {
         // Add your action code here.
-        if (Greenfoot.isKeyDown("left")) {
-            // move(-1);
+        if (Greenfoot.isKeyDown("left")) 
+        {
             setLocation(getX() - 2, getY());
             facing = "left";
         }
 
-        else if (Greenfoot.isKeyDown("right")) {
-            // move(1);
+        else if (Greenfoot.isKeyDown("right")) 
+        {
             setLocation(getX() + 2, getY());
             facing = "right";
         }
 
-        else if (Greenfoot.isKeyDown("up")) {
+        else if (Greenfoot.isKeyDown("up")) 
+        {
             setLocation(getX(), getY() - 2);
         }
 
-        else if (Greenfoot.isKeyDown("down")) {
+        else if (Greenfoot.isKeyDown("down")) 
+        {
             setLocation(getX(), getY() + 2);
         }
 
@@ -84,12 +87,25 @@ public class Diver extends Actor {
         DiverAnimation();
     }
 
-    public void find() {
-        if (isTouching(Treasure.class)) {
+    public void find() 
+    {
+        if(isTouching(Treasure.class)) 
+        {
             removeTouching(Treasure.class);
             MyWorld world = (MyWorld) getWorld();
             world.createTreasure();
+            world.createDiver();
             world.score();
+        }
+    }
+    
+    MyWorld world = (MyWorld) getWorld();
+    public void die()
+    {
+        if(isTouching(Shark.class))
+        {
+            world.gameOver();
+            world.removeObject(this);
         }
     }
 }
