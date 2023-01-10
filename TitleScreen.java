@@ -33,9 +33,9 @@ public class TitleScreen extends World
     
     private void prepare()
     {
-        //Diver diver = new Diver();
-        //addObject(diver,300,260);
-        //diver.setLocation(285,225);
+        Diver diver = new Diver();
+        addObject(diver,400,260);
+        diver.setLocation(300,205);
 
         Label label2 = new Label("Use \u2190 And \u2192 To Move", 35);
         addObject(label2,280,370);
