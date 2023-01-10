@@ -21,8 +21,6 @@ public class Treasure extends Actor
         setLocation(x,y);
     }
     
-    
-    
     public Treasure()
     {
         setImage(treasure);

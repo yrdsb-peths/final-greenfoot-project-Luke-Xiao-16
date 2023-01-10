@@ -7,24 +7,29 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (Luke)
  * @version (2022-12-20)
  */
-public class MyWorld extends World {
+public class MyWorld extends World 
+{
     public int Score = 0;
     Label scoreLabel;
     int level = 1;
-
     /**
      * Constructor for objects of class MyWorld.
      * 
      */
     public MyWorld() {
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 800x835 cells with a cell size of 1x1 pixels.
         super(800, 835, 1, false);
 
         // Create the diver
-        Diver diver = new Diver();
-        addObject(diver, 400, 40);
+        createDiver();
 
-
+        //Create sharks
+        createShark();
+        if(level == 2 || level == 4 || level == 6)
+        {
+            createShark();
+        }
+        
         // Create a treasure
         createTreasure();
 
@@ -32,15 +37,35 @@ public class MyWorld extends World {
         scoreLabel = new Label(0, 100);
         addObject(scoreLabel, 70, 50);
     }
-
+    
     // Spawn treasure at different locations
-    public void createTreasure() {
+    public void createTreasure() 
+    {
         Treasure treasure = new Treasure();
         int x = Greenfoot.getRandomNumber(800);
         int y = 805;
         addObject(treasure, x, y);
     }
 
+    //Spawn a diver
+    public void createDiver()
+    {
+        Diver diver = new Diver();
+        int x = Greenfoot.getRandomNumber(800);
+        int y = 0;
+        addObject(diver,x,y);
+    }
+    
+    //Spawn sharks at different locations
+    public void createShark()
+    {
+        Shark shark = new Shark();
+        shark.setSpeed(level);
+        int x = 0;
+        int y = Greenfoot.getRandomNumber(800);
+        addObject(shark,x,y);
+    }
+    
     // Score keeping
     public void score() {
         Score++;
