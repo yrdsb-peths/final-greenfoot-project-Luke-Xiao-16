@@ -91,13 +91,13 @@ public class Diver extends Actor
         //Diver animation
         DiverAnimation();
     }
-    
+    /*
     public void find()
     {
         if(isTouching(Treasure.class))
         {
-            MyWorld world = (MyWorld) getWorld();
-            //world.createShark();
+            
         }
     }
+    */
 }
