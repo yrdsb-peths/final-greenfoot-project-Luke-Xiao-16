@@ -113,12 +113,12 @@ public class Shark extends Actor {
         SharkAnimation();
     }
 
-    public void setSpeed(int Speed) {
+    public void setSpeed(int Speed) 
+    {
         speed = Speed;
     }
 
     int imageIndex = 0;
-
     public void SharkAnimation() 
     {
         if (animationTimer.millisElapsed() < 600) 
@@ -139,6 +139,8 @@ public class Shark extends Actor {
             imageIndex = (imageIndex + 1) % Left.length;
         }
     }
+    
+    //Shark turning left and right
     public void turnLeft()
     {
         Right[0].mirrorHorizontally();
