@@ -12,4 +12,6 @@ comment4.params=
 comment4.target=void\ SharkAnimation()
 comment5.params=
 comment5.target=void\ turnLeft()
-numComments=6
+comment6.params=
+comment6.target=void\ turnRight()
+numComments=7
