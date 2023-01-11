@@ -93,6 +93,7 @@ public class Diver extends Actor {
         {
             removeTouching(Treasure.class);
             MyWorld world = (MyWorld) getWorld();
+            world.removeObject(this);
             world.createTreasure();
             world.createDiver();
             world.score();
