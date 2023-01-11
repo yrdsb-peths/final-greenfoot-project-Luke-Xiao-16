@@ -11,7 +11,6 @@ public class Diver extends Actor {
     GreenfootImage[] Left = new GreenfootImage[9];
     String facing = "right";
     SimpleTimer Timer = new SimpleTimer();
-
     /**
      * Act - do whatever the Diver wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -89,7 +88,12 @@ public class Diver extends Actor {
         DiverAnimation();
         
         //Remove the diver
-        die();
+        MyWorld world = (MyWorld) getWorld();
+        if(isTouching(Shark.class))
+        {
+            world.gameOver();
+            world.removeObject(this);
+        }
     }
 
     public void find() 
@@ -103,17 +107,6 @@ public class Diver extends Actor {
             world.createTreasure();
             world.createDiver();
             world.score();
-        }
-    }
-    
-    MyWorld world = (MyWorld) getWorld();
-    public void die()
-    {
-        if(isTouching(Shark.class))
-        {
-            world.gameOver();
-            getWorld().removeObjects(getWorld().getObjects(Diver.class));
-            //world.removeObject(this);
         }
     }
 }

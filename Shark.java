@@ -12,7 +12,7 @@ public class Shark extends Actor {
     SimpleTimer animationTimer = new SimpleTimer();
     int speed = 1;
     String facing = "right";
-    int direction = 1;
+    int direction = 1; //Shark's initial direction (Right)
     /**
      * Act - do whatever the Shark wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -45,40 +45,27 @@ public class Shark extends Actor {
        {
            move(1);
        }
+       
        if(getX() == 800)
        {
            direction = 2;
            turnLeft();
        }
+       
        if(direction == 2)
        {
            move(-1);
        }
+       
        if(getX() == 0)
        {
            direction = 1;
            turnRight();
        }
-
-       //Shark eats the diver and display game over
-       eat();
        
        //Shark animation
        SharkAnimation();
     }
-    
-    //Shark eats the diver if they touch
-    
-    MyWorld world = (MyWorld) getWorld();
-    public void eat()
-    {
-        if(isTouching(Diver.class))
-        {
-            world.gameOver();
-            world.removeObject(this);
-        }
-    }
-    
 
     public void setSpeed(int Speed) 
     {
@@ -92,6 +79,7 @@ public class Shark extends Actor {
         {
             return;
         }
+        
         animationTimer.mark();
         
         if(facing.equals("right"))
