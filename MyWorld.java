@@ -61,7 +61,7 @@ public class MyWorld extends World
     {
         Shark shark = new Shark();
         shark.setSpeed(level);
-        int x = 0;
+        int x = 1;
         int y = Greenfoot.getRandomNumber(800);
         addObject(shark,x,y);
     }

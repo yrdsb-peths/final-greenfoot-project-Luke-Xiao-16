@@ -10,4 +10,6 @@ comment3.params=Speed
 comment3.target=void\ setSpeed(int)
 comment4.params=
 comment4.target=void\ SharkAnimation()
-numComments=5
+comment5.params=
+comment5.target=void\ turnLeft()
+numComments=6

@@ -41,21 +41,34 @@ public class Shark extends Actor {
     public void act() 
     {
         // Add your action code here.
+        /*
         int x = getX()+speed;
         int y = getY();
         setLocation(x, y);
+        */
+       //move(1);
 
-        if (x == 0) 
+        /*if (getX() == 800) 
         {
-            facing.equals("right");
-            setLocation(getX() + 1, getY());
+            turnLeft();
+            move(1);
         }
-
-        else if (x == 800) 
+        if (getX() == 0) 
+        {
+            move(1);
+        }
+        */
+       while(0 < getX() && getX() < 800)
+       {
+           move(1);
+       }
+        /*
+        if (getX() == 800) 
         {
             facing.equals("left");
             setLocation(getX() - 1, getY());
         }
+        */
 
         // Remove shark and display "Game Over" if shark touches the diver
         MyWorld world = (MyWorld) getWorld();
@@ -94,5 +107,9 @@ public class Shark extends Actor {
             setImage(Left[imageIndex]);
             imageIndex = (imageIndex + 1) % Left.length;
         }
+    }
+    public void turnLeft()
+    {
+        Right[0].mirrorHorizontally();
     }
 }
