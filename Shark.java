@@ -41,24 +41,6 @@ public class Shark extends Actor {
 
     public void act() 
     {
-        // Add your action code here.
-        /*
-        int x = getX()+speed;
-        int y = getY();
-        setLocation(x, y);
-        */
-       //move(1);
-
-        /*if (getX() == 800) 
-        {
-            turnLeft();
-            move(1);
-        }
-        if (getX() == 0) 
-        {
-            move(1);
-        }
-        */
        if(direction == 1)
        {
            move(1);
@@ -77,41 +59,26 @@ public class Shark extends Actor {
            direction = 1;
            turnRight();
        }
-       
-       
-       
-       /*
-        * else if(getX() == 800)
-       {
-           move(-35);
-           
-       }
-       if(getX() == 800)
-       {
-           Right[0].mirrorHorizontally();
-           move(5);
-       }
-       */
-       
-        /*
-        if (getX() == 800) 
-        {
-            facing.equals("left");
-            setLocation(getX() - 1, getY());
-        }
-        */
 
-        // Remove shark and display "Game Over" if shark touches the diver
-        MyWorld world = (MyWorld) getWorld();
-        if (isTouching(Diver.class))
+       //Shark eats the diver and display game over
+       eat();
+       
+       //Shark animation
+       SharkAnimation();
+    }
+    
+    //Shark eats the diver if they touch
+    
+    MyWorld world = (MyWorld) getWorld();
+    public void eat()
+    {
+        if(isTouching(Diver.class))
         {
             world.gameOver();
             world.removeObject(this);
         }
-        
-        // Shark animation
-        SharkAnimation();
     }
+    
 
     public void setSpeed(int Speed) 
     {
@@ -146,6 +113,7 @@ public class Shark extends Actor {
         Right[0].mirrorHorizontally();
         Right[1].mirrorHorizontally();
     }
+    
     public void turnRight()
     {
         Right[0].mirrorHorizontally();

@@ -16,7 +16,8 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    public MyWorld() {
+    public MyWorld() 
+    {
         // Create a new world with 800x835 cells with a cell size of 1x1 pixels.
         super(800, 835, 1, false);
 
@@ -25,10 +26,6 @@ public class MyWorld extends World
 
         //Create sharks
         createShark();
-        if(level == 2 || level == 4 || level == 6)
-        {
-            createShark();
-        }
         
         // Create a treasure
         createTreasure();
@@ -51,8 +48,8 @@ public class MyWorld extends World
     public void createDiver()
     {
         Diver diver = new Diver();
-        int x = Greenfoot.getRandomNumber(800);
-        int y = 0;
+        int x = 400;
+        int y = 36;
         addObject(diver,x,y);
     }
     
@@ -62,7 +59,7 @@ public class MyWorld extends World
         Shark shark = new Shark();
         shark.setSpeed(level);
         int x = 1;
-        int y = Greenfoot.getRandomNumber(800);
+        int y = Greenfoot.getRandomNumber(721);
         addObject(shark,x,y);
     }
     
@@ -70,13 +67,15 @@ public class MyWorld extends World
     public void score() {
         Score++;
         scoreLabel.setValue(Score);
-        if (Score % 5 == 0) {
+        if (Score % 5 == 0) 
+        {
             level++;
         }
     }
 
     // Ends the game
-    public void gameOver() {
+    public void gameOver() 
+    {
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
     }

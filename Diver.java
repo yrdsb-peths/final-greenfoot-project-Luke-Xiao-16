@@ -39,7 +39,8 @@ public class Diver extends Actor {
     // Diver animation
     int imageIndex = 0;
 
-    public void DiverAnimation() {
+    public void DiverAnimation() 
+    {
         if (Timer.millisElapsed() < 200) {
             return;
         }
@@ -86,6 +87,9 @@ public class Diver extends Actor {
 
         // Diver animation
         DiverAnimation();
+        
+        //Remove the diver
+        die();
     }
 
     public void find() 
@@ -95,6 +99,7 @@ public class Diver extends Actor {
             removeTouching(Treasure.class);
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
+            world.createShark();
             world.createTreasure();
             world.createDiver();
             world.score();
@@ -107,7 +112,8 @@ public class Diver extends Actor {
         if(isTouching(Shark.class))
         {
             world.gameOver();
-            world.removeObject(this);
+            getWorld().removeObjects(getWorld().getObjects(Diver.class));
+            //world.removeObject(this);
         }
     }
 }
