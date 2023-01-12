@@ -10,6 +10,4 @@ comment3.params=
 comment3.target=void\ act()
 comment4.params=
 comment4.target=void\ find()
-comment5.params=
-comment5.target=void\ die()
-numComments=6
+numComments=5
