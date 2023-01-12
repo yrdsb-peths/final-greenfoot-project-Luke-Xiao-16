@@ -88,12 +88,15 @@ public class Diver extends Actor {
         DiverAnimation();
         
         //Remove the diver
+        die();
+        /*
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Shark.class))
         {
             world.gameOver();
             world.removeObject(this);
         }
+        */
     }
 
     public void find() 
@@ -107,6 +110,16 @@ public class Diver extends Actor {
             world.createTreasure();
             world.createDiver();
             world.score();
+        }
+    }
+    
+    public void die()
+    {
+        MyWorld world = (MyWorld) getWorld();
+        if(isTouching(Shark.class))
+        {
+            world.gameOver();
+            world.removeObject(this);
         }
     }
 }
