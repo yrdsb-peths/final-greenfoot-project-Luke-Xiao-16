@@ -59,24 +59,24 @@ public class Diver extends Actor {
     public void act() 
     {
         // Add your action code here.
-        if (Greenfoot.isKeyDown("left")) 
+        if (Greenfoot.isKeyDown("A")) 
         {
             setLocation(getX() - 2, getY());
             facing = "left";
         }
 
-        else if (Greenfoot.isKeyDown("right")) 
+        else if (Greenfoot.isKeyDown("D")) 
         {
             setLocation(getX() + 2, getY());
             facing = "right";
         }
 
-        else if (Greenfoot.isKeyDown("up")) 
+        else if (Greenfoot.isKeyDown("W")) 
         {
             setLocation(getX(), getY() - 2);
         }
 
-        else if (Greenfoot.isKeyDown("down")) 
+        else if (Greenfoot.isKeyDown("S")) 
         {
             setLocation(getX(), getY() + 2);
         }
