@@ -1,6 +1,8 @@
 #Greenfoot project file
 class.Diver.image=1.0.png
+class.MyWorld.image=top.jpeg
 class.Shark.image=shark1.0.png
+class.TitleScreen.image=palace.jpeg
 class.Treasure.image=Treasure.png
 dependency1.from=MyWorld
 dependency1.to=Label
@@ -38,10 +40,10 @@ dependency8.type=UsesDependency
 dependency9.from=Diver
 dependency9.to=MyWorld
 dependency9.type=UsesDependency
-editor.fx.0.height=1025
-editor.fx.0.width=1680
+editor.fx.0.height=0
+editor.fx.0.width=0
 editor.fx.0.x=0
-editor.fx.0.y=25
+editor.fx.0.y=0
 height=945
 package.numDependencies=12
 package.numTargets=7
