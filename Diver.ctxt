@@ -9,5 +9,5 @@ comment2.target=void\ DiverAnimation()
 comment3.params=
 comment3.target=void\ act()
 comment4.params=
-comment4.target=void\ find()
+comment4.target=void\ foundTreasure()
 numComments=5

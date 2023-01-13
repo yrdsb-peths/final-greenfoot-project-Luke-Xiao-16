@@ -59,34 +59,51 @@ public class Diver extends Actor {
     public void act() 
     {
         // Add your action code here.
-        if (Greenfoot.isKeyDown("left")) 
+        if (Greenfoot.isKeyDown("A") || Greenfoot.isKeyDown("left")) 
         {
             setLocation(getX() - 2, getY());
             facing = "left";
+            setRotation(0);
         }
 
-        else if (Greenfoot.isKeyDown("right")) 
+        else if (Greenfoot.isKeyDown("D") || Greenfoot.isKeyDown("right")) 
         {
             setLocation(getX() + 2, getY());
             facing = "right";
+            setRotation(0);
         }
 
-        else if (Greenfoot.isKeyDown("up")) 
+        else if (Greenfoot.isKeyDown("W") || Greenfoot.isKeyDown("up")) 
         {
             setLocation(getX(), getY() - 2);
+            if (facing.equals("left"))
+            {
+                setRotation(90);
+            }
+            
+            else if (facing.equals("right"))
+            {
+                setRotation(270);
+            }
         }
 
-        else if (Greenfoot.isKeyDown("down")) 
+        else if (Greenfoot.isKeyDown("S") || Greenfoot.isKeyDown("down")) 
         {
             setLocation(getX(), getY() + 2);
+            if (facing.equals("left"))
+            {
+                setRotation(270);
+            }
+            
+            else if (facing.equals("right"))
+            {
+                setRotation(90);
+            }
         }
-
-        // Diver finds the treasure
-        find();
 
         // Diver animation
         DiverAnimation();
-        
+
         //Remove the diver
         MyWorld world = (MyWorld) getWorld();
         if(isTouching(Shark.class))
@@ -94,19 +111,22 @@ public class Diver extends Actor {
             world.gameOver();
             world.removeObject(this);
         }
-    }
-
-    public void find() 
-    {
-        if(isTouching(Treasure.class)) 
+        // Diver finds the treasure
+        else if(isTouching(Treasure.class)) 
         {
-            removeTouching(Treasure.class);
-            MyWorld world = (MyWorld) getWorld();
-            world.removeObject(this);
-            world.createShark();
-            world.createTreasure();
-            world.createDiver();
-            world.score();
+            foundTreasure();
         }
+    }
+    GreenfootSound ScubaSound = new GreenfootSound("scuba.mp3");
+    public void foundTreasure() 
+    {
+        removeTouching(Treasure.class);
+        MyWorld world = (MyWorld) getWorld();
+        world.createShark();
+        world.createTreasure();
+        world.createDiver();
+        world.score();
+        world.removeObject(this);
+        ScubaSound.play();
     }
 }

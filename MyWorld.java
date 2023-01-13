@@ -19,7 +19,7 @@ public class MyWorld extends World
     public MyWorld() 
     {
         // Create a new world with 800x835 cells with a cell size of 1x1 pixels.
-        super(800, 835, 1, false);
+        super(800, 1200, 1, false);
 
         // Create the diver
         createDiver();
@@ -32,7 +32,10 @@ public class MyWorld extends World
 
         // Create a label
         scoreLabel = new Label(0, 100);
-        addObject(scoreLabel, 70, 50);
+        addObject(scoreLabel, 70, 60);//70,50
+        
+        GreenfootSound ScubaSound = new GreenfootSound("scuba.mp3");
+        ScubaSound.play();
     }
     
     // Spawn treasure at different locations
@@ -40,7 +43,7 @@ public class MyWorld extends World
     {
         Treasure treasure = new Treasure();
         int x = Greenfoot.getRandomNumber(800);
-        int y = 805;
+        int y = 1155;
         addObject(treasure, x, y);
     }
 
@@ -59,7 +62,7 @@ public class MyWorld extends World
         Shark shark = new Shark();
         shark.setSpeed(level);
         int x = 1;
-        int y = Greenfoot.getRandomNumber(721);
+        int y = Greenfoot.getRandomNumber(1024);
         addObject(shark,x,y);
     }
     
@@ -77,6 +80,6 @@ public class MyWorld extends World
     public void gameOver() 
     {
         Label gameOverLabel = new Label("Game Over", 100);
-        addObject(gameOverLabel, 300, 200);
+        addObject(gameOverLabel, 400, 300);
     }
 }
