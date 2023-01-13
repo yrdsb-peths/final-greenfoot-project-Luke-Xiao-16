@@ -9,6 +9,8 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Diver extends Actor {
     GreenfootImage[] Right = new GreenfootImage[9];
     GreenfootImage[] Left = new GreenfootImage[9];
+    GreenfootSound ScubaSound = new GreenfootSound("scuba.mp3");
+    GreenfootSound ScreamSound = new GreenfootSound("scream.mp3");
     String facing = "right";
     SimpleTimer Timer = new SimpleTimer();
     /**
@@ -110,6 +112,7 @@ public class Diver extends Actor {
         {
             world.gameOver();
             world.removeObject(this);
+            ScreamSound.play();
         }
         // Diver finds the treasure
         else if(isTouching(Treasure.class)) 
@@ -117,7 +120,7 @@ public class Diver extends Actor {
             foundTreasure();
         }
     }
-    GreenfootSound ScubaSound = new GreenfootSound("scuba.mp3");
+    
     public void foundTreasure() 
     {
         removeTouching(Treasure.class);
