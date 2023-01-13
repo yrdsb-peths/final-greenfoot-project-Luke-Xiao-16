@@ -33,6 +33,12 @@ public class MyWorld extends World
         // Create a label
         scoreLabel = new Label(0, 100);
         addObject(scoreLabel, 70, 60);//70,50
+        
+        GreenfootSound ScubaSound = new GreenfootSound("scuba.mp3");
+        while(Score >= 0)
+        {
+            ScubaSound.play();
+        }
     }
     
     // Spawn treasure at different locations
