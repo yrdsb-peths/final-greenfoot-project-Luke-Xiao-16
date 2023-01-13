@@ -63,22 +63,42 @@ public class Diver extends Actor {
         {
             setLocation(getX() - 2, getY());
             facing = "left";
+            setRotation(0);
         }
 
         else if (Greenfoot.isKeyDown("D") || Greenfoot.isKeyDown("right")) 
         {
             setLocation(getX() + 2, getY());
             facing = "right";
+            setRotation(0);
         }
 
         else if (Greenfoot.isKeyDown("W") || Greenfoot.isKeyDown("up")) 
         {
             setLocation(getX(), getY() - 2);
+            if (facing.equals("left"))
+            {
+                setRotation(90);
+            }
+            
+            else if (facing.equals("right"))
+            {
+                setRotation(270);
+            }
         }
 
         else if (Greenfoot.isKeyDown("S") || Greenfoot.isKeyDown("down")) 
         {
             setLocation(getX(), getY() + 2);
+            if (facing.equals("left"))
+            {
+                setRotation(270);
+            }
+            
+            else if (facing.equals("right"))
+            {
+                setRotation(90);
+            }
         }
 
         // Diver animation
@@ -97,7 +117,7 @@ public class Diver extends Actor {
             foundTreasure();
         }
     }
-
+    GreenfootSound ScubaSound = new GreenfootSound("scuba.mp3");
     public void foundTreasure() 
     {
         removeTouching(Treasure.class);
@@ -107,5 +127,6 @@ public class Diver extends Actor {
         world.createDiver();
         world.score();
         world.removeObject(this);
+        ScubaSound.play();
     }
 }
