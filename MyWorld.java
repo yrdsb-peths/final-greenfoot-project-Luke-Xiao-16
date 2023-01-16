@@ -62,7 +62,7 @@ public class MyWorld extends World
         Shark shark = new Shark();
         shark.setSpeed(level);
         int x = 1;
-        int y = Greenfoot.getRandomNumber(1024);
+        int y = Greenfoot.getRandomNumber(800);
         addObject(shark,x,y);
     }
     
@@ -80,6 +80,6 @@ public class MyWorld extends World
     public void gameOver() 
     {
         Label gameOverLabel = new Label("Game Over", 100);
-        addObject(gameOverLabel, 400, 300);
+        addObject(gameOverLabel, 300, 300);
     }
 }
