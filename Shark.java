@@ -46,7 +46,7 @@ public class Shark extends Actor {
            move(1);
        }
        
-       if(getX() == 800)
+       if(getX() == 600)
        {
            direction = 2;
            turnLeft();
